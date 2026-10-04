@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Mis Libros | Librería Magna</title>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+ <link rel="stylesheet" href="/css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/dark-theme.css">
+  <!-- jsPDF for PDF export (Mejora 3) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.3/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body class="app-page" style="--page-brightness: 0.48;">
+ <header id="navbar"></header>
+
+ <main class="container py-4">
+   <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+     <h2 class="mb-0">📚 Mis Libros</h2>
+     <div class="d-flex gap-2">
+       <!-- Botón Exportar PDF (Mejora 3) -->
+       <button class="btn btn-success" id="btn-export-pdf" onclick="exportBooksPDF()" title="Exportar biblioteca a PDF">
+         📄 Exportar PDF
+       </button>
+       <a href="create-item.html" class="btn btn-primary">+ Agregar libro</a>
+     </div>
+   </div>
+
+   <!-- Búsqueda -->
+   <div class="search-box mb-3">
+     <input type="text" class="form-control" id="search-input" placeholder="Buscar por título o autor...">
+     <span class="search-icon">🔍</span>
+   </div>
+
+   <!-- Filtros por estado -->
+   <div class="filtros">
+     <button class="btn btn-sm btn-primary active" data-filter="todos" data-bg="/assets/img/Michelangelo_-_Creation_of_Adam_(cropped).jpg">Todos</button>
+     <button class="btn btn-sm btn-outline-primary" data-filter="por_leer" data-bg="/assets/img/Estado Salvaje.jpg">Por leer</button>
+     <button class="btn btn-sm btn-outline-primary" data-filter="leyendo" data-bg="/assets/img/El estado arcádico o pastoral.jpg">Leyendo</button>
+     <button class="btn btn-sm btn-outline-primary" data-filter="leido" data-bg="/assets/img/La consumación del imperio.jpg">Leídos</button>
+     <button class="btn btn-sm btn-outline-primary" data-filter="abandonado" data-bg="/assets/img/Desolación.jpg">Abandonados</button>
+   </div>
+
+   <!-- Admin: toggle para ver todos -->
+   <div class="form-check mb-3" id="admin-toggle" style="display:none;">
+     <input class="form-check-input" type="checkbox" id="check-todos">
+     <label class="form-check-label" for="check-todos">Ver libros de todos los usuarios (admin)</label>
+   </div>
+
+   <!-- Grid de libros -->
+   <div class="row g-3" id="books-container">
+     <div class="col-12 text-center py-5 text-suave" id="loading-msg">
+       <div class="spinner-border text-primary" role="status"></div>
+       <p class="mt-2">Cargando libros...</p>
+     </div>
+   </div>
+ </main>
+
+ <div id="footer"></div>
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="/js/main.js"></script>
+ <script src="/js/books.js"></script>
+</body>
+</html>

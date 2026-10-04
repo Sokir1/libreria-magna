@@ -1,0 +1,604 @@
+/* ============================================================
+   dark-theme.css
+   Tema oscuro compartido para todas las paginas internas
+   Replica la estetica del index: #D8B493, Cormorant Garamond,
+   Courier Prime, glass panels, fondo oscuro
+   ============================================================ */
+
+/* Aplicar a cualquier body con class="app-page" */
+body.app-page {
+  background-color: #0d0906;
+  color: #D8B493;
+  font-family: 'Courier Prime', monospace;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.app-page::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--page-bg, url('/assets/img/hero-bg.png')) center center / cover no-repeat fixed;
+  filter: sepia(0.5) saturate(0.7) brightness(var(--page-brightness, 0.38)) contrast(1.1);
+  z-index: -2;
+  transition: background 0.6s ease, filter 0.6s ease;
+}
+
+body.app-page::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(180deg, rgba(20,12,6,0.85) 0%, rgba(13,9,6,0.92) 100%);
+  z-index: -1;
+}
+
+body.app-page main {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+/* === NAVBAR === */
+body.app-page .navbar {
+  background-color: rgba(35, 24, 18, 0.92) !important;
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(216, 180, 147, 0.1);
+  position: relative;
+  z-index: 10;
+}
+
+body.app-page .navbar-brand {
+  color: #D8B493 !important;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+body.app-page .nav-link {
+  color: rgba(216, 180, 147, 0.7) !important;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+body.app-page .nav-link:hover { color: #D8B493 !important; }
+
+/* === TITULOS === */
+body.app-page h2,
+body.app-page h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  color: #D8B493;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* === CARDS GLASS === */
+body.app-page .card {
+  background: rgba(35, 24, 18, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(216, 180, 147, 0.08);
+  border-radius: 4px;
+  color: #D8B493;
+  transition: all 0.3s;
+}
+
+body.app-page .card:hover {
+  background: rgba(45, 30, 20, 0.85);
+  border-color: rgba(216, 180, 147, 0.15);
+}
+
+body.app-page .card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  color: #D8B493;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+body.app-page .card-text {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.85rem;
+  color: rgba(216, 180, 147, 0.7);
+}
+
+/* === FORMULARIOS === */
+body.app-page .form-control,
+body.app-page .form-select {
+  background-color: rgba(25, 16, 10, 0.8);
+  border: 1px solid rgba(216, 180, 147, 0.15);
+  color: #D8B493;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.85rem;
+}
+
+body.app-page .form-control:focus,
+body.app-page .form-select:focus {
+  background-color: rgba(25, 16, 10, 0.9);
+  border-color: rgba(216, 180, 147, 0.35);
+  box-shadow: 0 0 0 0.2rem rgba(216, 180, 147, 0.1);
+  color: #D8B493;
+}
+
+body.app-page .form-control::placeholder {
+  color: rgba(216, 180, 147, 0.35);
+}
+
+body.app-page .form-label {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.8rem;
+  color: rgba(216, 180, 147, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+body.app-page .form-text {
+  color: rgba(216, 180, 147, 0.45);
+}
+
+/* === BOTONES === */
+body.app-page .btn-primary {
+  background-color: rgba(216, 180, 147, 0.9);
+  border-color: #D8B493;
+  color: #0d0906;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 3px;
+}
+
+body.app-page .btn-primary:hover {
+  background-color: #D8B493;
+  border-color: #D8B493;
+}
+
+body.app-page .btn-outline-primary {
+  color: #D8B493;
+  border-color: rgba(216, 180, 147, 0.4);
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 3px;
+}
+
+body.app-page .btn-outline-primary:hover {
+  background-color: rgba(216, 180, 147, 0.1);
+  border-color: #D8B493;
+  color: #D8B493;
+}
+
+body.app-page .btn-outline-secondary {
+  color: rgba(216, 180, 147, 0.6);
+  border-color: rgba(216, 180, 147, 0.2);
+}
+
+body.app-page .btn-outline-danger {
+  color: #E85D5D;
+  border-color: rgba(232, 93, 93, 0.3);
+}
+
+body.app-page .btn-outline-danger:hover {
+  background-color: rgba(232, 93, 93, 0.15);
+}
+
+/* === BADGES === */
+body.app-page .badge-por-leer { background-color: rgba(93, 173, 226, 0.8); }
+body.app-page .badge-leyendo { background-color: rgba(245, 197, 66, 0.8); color: #0d0906; }
+body.app-page .badge-leido { background-color: rgba(110, 207, 114, 0.8); color: #0d0906; }
+body.app-page .badge-abandonado { background-color: rgba(232, 93, 93, 0.8); }
+
+/* === TABLA === */
+body.app-page .table {
+  color: #D8B493;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.8rem;
+}
+
+body.app-page .table thead th {
+  border-color: rgba(216, 180, 147, 0.15);
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(216, 180, 147, 0.8);
+}
+
+body.app-page .table td {
+  border-color: rgba(216, 180, 147, 0.08);
+  vertical-align: middle;
+}
+
+body.app-page .table-hover tbody tr:hover {
+  background-color: rgba(216, 180, 147, 0.05);
+  color: #D8B493;
+}
+
+/* === FORM AUTH (login/register) === */
+body.app-page .form-auth {
+  max-width: 440px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+body.app-page .form-auth .card {
+  padding: 2rem;
+}
+
+/* === STAT CARDS === */
+body.app-page .stat-card {
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 4px;
+  background: rgba(35, 24, 18, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(216, 180, 147, 0.08);
+}
+
+body.app-page .stat-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #D8B493;
+}
+
+body.app-page .stat-label {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.7rem;
+  color: rgba(216, 180, 147, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* === FILTROS === */
+body.app-page .filtros .btn {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* === SEARCH BOX === */
+body.app-page .search-box input {
+  background-color: rgba(25, 16, 10, 0.8);
+  border: 1px solid rgba(216, 180, 147, 0.15);
+  color: #D8B493;
+  font-family: 'Courier Prime', monospace;
+}
+
+body.app-page .search-box input:focus {
+  border-color: rgba(216, 180, 147, 0.35);
+  box-shadow: 0 0 0 0.2rem rgba(216, 180, 147, 0.1);
+  color: #D8B493;
+}
+
+/* === BOOK CARDS === */
+body.app-page .book-card .book-cover {
+  background-color: rgba(25, 16, 10, 0.6);
+}
+
+body.app-page .book-card .book-actions .btn {
+  backdrop-filter: blur(8px);
+}
+
+/* === ALERTAS === */
+body.app-page .alert {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.85rem;
+  border-radius: 4px;
+}
+
+/* === FOOTER === */
+body.app-page .footer {
+  background-color: rgba(20, 12, 6, 0.92) !important;
+  backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(216, 180, 147, 0.06);
+  color: rgba(216, 180, 147, 0.4);
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  position: relative;
+  z-index: 1;
+}
+
+body.app-page .footer strong {
+  color: #D8B493;
+  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* === SCROLLBAR === */
+body.app-page::-webkit-scrollbar { width: 8px; }
+body.app-page::-webkit-scrollbar-track { background: rgba(13, 9, 6, 0.8); }
+body.app-page::-webkit-scrollbar-thumb { background: rgba(216, 180, 147, 0.2); border-radius: 4px; }
+body.app-page::-webkit-scrollbar-thumb:hover { background: rgba(216, 180, 147, 0.35); }
+
+/* === ESTRELLAS === */
+body.app-page .estrellas { color: rgba(216, 180, 147, 0.6); font-size: 1rem; }
+
+/* Stars muted */
+body.app-page .estrellas .filled { color: rgba(216, 180, 147, 0.5); }
+
+/* === TEXT SUAVE === */
+body.app-page .text-suave { color: rgba(216, 180, 147, 0.5) !important; }
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  body.app-page .stat-number { font-size: 1.8rem; }
+}
+
+/* === BOOK ACTION BUTTONS (edit/delete) === */
+body.app-page .book-card .book-actions .btn {
+  opacity: 0.6;
+  transition: opacity 0.3s;
+  font-size: 0.7rem;
+  padding: 3px 6px;
+}
+body.app-page .book-card .book-actions .btn:hover {
+  opacity: 1;
+}
+body.app-page .book-card .book-actions .btn-warning {
+  background-color: rgba(216, 180, 147, 0.3);
+  border-color: rgba(216, 180, 147, 0.2);
+  color: rgba(216, 180, 147, 0.8);
+}
+body.app-page .book-card .book-actions .btn-danger {
+  background-color: rgba(232, 93, 93, 0.25);
+  border-color: rgba(232, 93, 93, 0.15);
+  color: rgba(232, 93, 93, 0.7);
+}
+
+/* === ALL HEADINGS: Cormorant Garamond === */
+body.app-page h1, body.app-page h2, body.app-page h3,
+body.app-page h4, body.app-page h5, body.app-page h6 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  color: #D8B493;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* === ALL BODY TEXT: Courier Prime === */
+body.app-page p, body.app-page span, body.app-page label,
+body.app-page td, body.app-page th, body.app-page a,
+body.app-page li, body.app-page small {
+  font-family: 'Courier Prime', monospace;
+}
+
+/* === STAT NUMBERS: Cormorant Garamond === */
+body.app-page .stat-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  color: rgba(216, 180, 147, 0.8);
+}
+
+/* ===============================================================
+   HERMES BLUE THEME (Light mode toggle)
+   Toggle class "hermes-mode" on body for this style
+   =============================================================== */
+
+body.app-page.hermes-mode {
+  background-color: #ffffff;
+  color: #0000CC;
+}
+
+body.app-page.hermes-mode::before {
+  background: none;
+  filter: none;
+}
+
+body.app-page.hermes-mode::after {
+  background: none;
+}
+
+body.app-page.hermes-mode .navbar {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-bottom: 2px solid #0000CC;
+}
+
+body.app-page.hermes-mode .navbar-brand {
+  color: #0000CC !important;
+}
+
+body.app-page.hermes-mode .nav-link {
+  color: rgba(0, 0, 204, 0.7) !important;
+}
+
+body.app-page.hermes-mode .nav-link:hover {
+  color: #0000CC !important;
+}
+
+body.app-page.hermes-mode h1, body.app-page.hermes-mode h2,
+body.app-page.hermes-mode h3, body.app-page.hermes-mode h4,
+body.app-page.hermes-mode h5, body.app-page.hermes-mode h6 {
+  color: #0000CC;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+}
+
+body.app-page.hermes-mode p, body.app-page.hermes-mode span,
+body.app-page.hermes-mode label, body.app-page.hermes-mode td,
+body.app-page.hermes-mode th, body.app-page.hermes-mode a,
+body.app-page.hermes-mode li, body.app-page.hermes-mode small {
+  color: #0000CC;
+  font-family: 'Courier Prime', monospace;
+}
+
+body.app-page.hermes-mode .card {
+  background: #ffffff;
+  border: 2px solid #0000CC;
+  color: #0000CC;
+}
+
+body.app-page.hermes-mode .card-title {
+  color: #0000CC;
+}
+
+body.app-page.hermes-mode .card-text {
+  color: rgba(0, 0, 204, 0.8);
+}
+
+body.app-page.hermes-mode .form-control,
+body.app-page.hermes-mode .form-select {
+  background-color: #ffffff;
+  border: 1.5px solid #0000CC;
+  color: #0000CC;
+}
+
+body.app-page.hermes-mode .form-control:focus,
+body.app-page.hermes-mode .form-select:focus {
+  background-color: #ffffff;
+  border-color: #0000CC;
+  color: #0000CC;
+  box-shadow: 0 0 0 0.15rem rgba(0, 0, 204, 0.2);
+}
+
+body.app-page.hermes-mode .form-control::placeholder {
+  color: rgba(0, 0, 204, 0.4);
+}
+
+body.app-page.hermes-mode .form-label {
+  color: #0000CC;
+}
+
+body.app-page.hermes-mode .btn-primary {
+  background-color: #ffffff;
+  border: 1.5px solid #0000CC;
+  color: #0000CC;
+}
+
+body.app-page.hermes-mode .btn-primary:hover {
+  background-color: #0000CC;
+  color: #ffffff;
+}
+
+body.app-page.hermes-mode .btn-outline-primary {
+  background-color: transparent;
+  border: 1.5px solid #0000CC;
+  color: #0000CC;
+}
+
+body.app-page.hermes-mode .btn-outline-primary:hover {
+  background-color: #0000CC;
+  color: #ffffff;
+}
+
+body.app-page.hermes-mode .btn-outline-secondary {
+  color: rgba(0, 0, 204, 0.6);
+  border-color: rgba(0, 0, 204, 0.3);
+}
+
+body.app-page.hermes-mode .btn-outline-danger {
+  color: #CC0000;
+  border-color: #CC0000;
+}
+
+body.app-page.hermes-mode .btn-outline-danger:hover {
+  background-color: #CC0000;
+  color: #ffffff;
+}
+
+body.app-page.hermes-mode .stat-card {
+  background: #ffffff;
+  border: 2px solid #0000CC;
+}
+
+body.app-page.hermes-mode .stat-number {
+  color: #0000CC;
+}
+
+body.app-page.hermes-mode .stat-label {
+  color: rgba(0, 0, 204, 0.6);
+}
+
+body.app-page.hermes-mode .badge {
+  border: 1px solid currentColor;
+}
+
+body.app-page.hermes-mode .badge-por-leer {
+  background-color: rgba(0, 0, 204, 0.1);
+  color: #0000AA;
+}
+body.app-page.hermes-mode .badge-leyendo {
+  background-color: rgba(0, 0, 204, 0.2);
+  color: #000088;
+}
+body.app-page.hermes-mode .badge-leido {
+  background-color: rgba(0, 0, 204, 0.15);
+  color: #0000AA;
+}
+body.app-page.hermes-mode .badge-abandonado {
+  background-color: rgba(204, 0, 0, 0.1);
+  color: #CC0000;
+}
+
+body.app-page.hermes-mode .table {
+  color: #0000CC;
+}
+
+body.app-page.hermes-mode .table thead th {
+  border-color: #0000CC;
+  color: #0000CC;
+}
+
+body.app-page.hermes-mode .table td {
+  border-color: rgba(0, 0, 204, 0.3);
+}
+
+body.app-page.hermes-mode .table-hover tbody tr:hover {
+  background-color: rgba(0, 0, 204, 0.05);
+  color: #0000CC;
+}
+
+body.app-page.hermes-mode .search-box input {
+  background-color: #ffffff;
+  border: 1.5px solid #0000CC;
+  color: #0000CC;
+}
+
+body.app-page.hermes-mode .search-box input:focus {
+  border-color: #0000CC;
+  color: #0000CC;
+}
+
+body.app-page.hermes-mode .text-suave {
+  color: rgba(0, 0, 204, 0.5) !important;
+}
+
+body.app-page.hermes-mode .estrellas {
+  color: #0000CC;
+}
+
+body.app-page.hermes-mode .footer {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-top: 2px solid #0000CC;
+  color: #0000CC;
+}
+
+body.app-page.hermes-mode .footer strong {
+  color: #0000CC;
+}
+
+body.app-page.hermes-mode .book-card .book-actions .btn-warning {
+  background-color: rgba(0, 0, 204, 0.15);
+  border-color: rgba(0, 0, 204, 0.3);
+  color: #0000CC;
+}
+
+body.app-page.hermes-mode .book-card .book-actions .btn-danger {
+  background-color: rgba(204, 0, 0, 0.15);
+  border-color: rgba(204, 0, 0, 0.3);
+  color: #CC0000;
+}
+
+body.app-page.hermes-mode::-webkit-scrollbar { width: 8px; }
+body.app-page.hermes-mode::-webkit-scrollbar-track { background: #ffffff; }
+body.app-page.hermes-mode::-webkit-scrollbar-thumb { background: #0000CC; border-radius: 4px; }

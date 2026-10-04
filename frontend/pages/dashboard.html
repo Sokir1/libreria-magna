@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Mi Biblioteca | Librería Magna</title>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+ <link rel="stylesheet" href="/css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/dark-theme.css">
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body class="app-page" style="--page-bg: url('/assets/img/seneca.jpg'); --page-brightness: 0.42;">
+ <header id="navbar"></header>
+
+ <main class="container py-4">
+   <h2 class="mb-4">📚 Mi Biblioteca</h2>
+
+   <!-- Estadísticas numéricas -->
+   <div class="row g-3 mb-4" id="stats-container">
+     <div class="col-md-3 col-6">
+       <div class="stat-card">
+         <div class="stat-number" id="stat-total">0</div>
+         <div class="stat-label">Total libros</div>
+       </div>
+     </div>
+     <div class="col-md-3 col-6">
+       <div class="stat-card">
+         <div class="stat-number" id="stat-leidos">0</div>
+         <div class="stat-label">Leídos</div>
+       </div>
+     </div>
+     <div class="col-md-3 col-6">
+       <div class="stat-card">
+         <div class="stat-number" id="stat-leyendo">0</div>
+         <div class="stat-label">Leyendo</div>
+       </div>
+     </div>
+     <div class="col-md-3 col-6">
+       <div class="stat-card">
+         <div class="stat-number" id="stat-rating">-</div>
+         <div class="stat-label">Rating promedio</div>
+       </div>
+     </div>
+   </div>
+
+   <!-- Gráficos (Mejora 1: Chart.js) -->
+   <div class="row g-4 mb-5">
+     <div class="col-md-6">
+       <div class="card p-3">
+         <h5 class="card-title mb-3">📊 Estado de lectura</h5>
+         <canvas id="chart-status" height="250"></canvas>
+       </div>
+     </div>
+     <div class="col-md-6">
+       <div class="card p-3">
+         <h5 class="card-title mb-3">⭐ Calificaciones</h5>
+         <canvas id="chart-rating" height="250"></canvas>
+       </div>
+     </div>
+   </div>
+
+   <!-- Mejora 2: Libro del día -->
+   <div class="row g-4 mb-5" id="book-of-day-section" style="display:none;">
+     <div class="col-12">
+       <div class="card p-4 text-center" style="border-left: 5px solid var(--color-primario);">
+         <h5 class="card-title mb-3">📖 Libro del día</h5>
+         <div id="book-of-day-content">
+           <div class="spinner-border text-primary" role="status"></div>
+         </div>
+       </div>
+     </div>
+   </div>
+
+   <!-- Últimos libros agregados -->
+   <h4 class="mb-3">Últimos libros agregados</h4>
+   <div class="row g-3" id="recent-books">
+     <div class="col-12 text-center py-5 text-suave" id="no-books-msg">
+       <p style="font-size:3rem;">📭</p>
+       <p>Aún no tienes libros. ¡Agrega el primero!</p>
+       <a href="create-item.html" class="btn btn-primary">Agregar libro</a>
+     </div>
+   </div>
+ </main>
+
+ <div id="footer"></div>
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="/js/main.js"></script>
+ <script src="/js/books.js"></script>
+</body>
+</html>
